@@ -3,13 +3,19 @@ package uvg.edu.gt;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Punto de entrada principal para la aplicación de gestión de cartas.
+ * Esta clase interactúa con el usuario a través de la consola, permitiéndole seleccionar
+ * una implementación de mapa, agregar y mostrar cartas en su colección, y realizar diversas
+ * operaciones relacionadas con la gestión de cartas.
+ */
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CardManager cardManager = new CardManager();
         MapFactory mapFactory = new MapFactoryImpl();
 
-        // Seleccionar la implementación de MAP mediante el patrón Factory
+        // Instrucciones para seleccionar la implementación de MAP mediante el patrón Factory
         System.out.println("Seleccione la implementación del MAP:\n1) HashMap\n2) TreeMap\n3) LinkedHashMap");
         String mapChoice = scanner.nextLine();
         switch (mapChoice) {
@@ -27,7 +33,7 @@ public class Main {
                 cardManager.setAvailableCards(mapFactory.getMap("HashMap"));
         }
 
-        // Cargar cartas desde el archivo
+        // Proceso para cargar cartas desde un archivo
         try {
             cardManager.loadCardsFromFile("C:\\Users\\nicol\\OneDrive\\Documents\\UVG\\Tercer Semestre\\Algoritmos y Estructura de Datos\\HT6_AED\\cards_desc.txt");
         } catch (IOException e) {
@@ -35,6 +41,7 @@ public class Main {
             return;
         }
 
+        // Bucle principal para operaciones del usuario
         String userChoice;
         do {
             System.out.println("\nOperaciones disponibles:");
@@ -49,11 +56,12 @@ public class Main {
             userChoice = scanner.nextLine();
 
             switch (userChoice) {
+                // Casos para las diferentes operaciones que el usuario puede realizar
                 case "1":
                     System.out.print("Ingrese el nombre de la carta a agregar: ");
                     String cardToAdd = scanner.nextLine();
                     cardManager.addCardToUserCollection(cardToAdd);
-                break;
+                    break;
                 case "2":
                     System.out.print("Ingrese el nombre de la carta para mostrar su tipo: ");
                     String cardToShowType = scanner.nextLine();
@@ -84,4 +92,5 @@ public class Main {
         } while (!userChoice.equals("7"));
     }
 }
+
 
