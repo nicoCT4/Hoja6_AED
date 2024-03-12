@@ -1,5 +1,7 @@
 package uvg.edu.gt;
 
-public class MapFactory {
-    
+import java.util.Map;
+
+public interface MapFactory {
+    Map<String, Card> getMap(String mapType);
 }
