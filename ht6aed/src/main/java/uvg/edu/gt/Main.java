@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
+ * Nicolás Concuá-23197
+ * Fernando Hernandez- 23645
  * Punto de entrada principal para la aplicación de gestión de cartas.
  * Esta clase interactúa con el usuario a través de la consola, permitiéndole seleccionar
  * una implementación de mapa, agregar y mostrar cartas en su colección, y realizar diversas
